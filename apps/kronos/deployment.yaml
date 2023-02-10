@@ -21,3 +21,10 @@ spec:
         image: haroldo89/front-app:69
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 50m
+            memory: 50Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi

@@ -1,23 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kronos
-  namespace: kronos
+  name: petclinic-backend
+  namespace: petclinic-backend
   labels:
-    name: kronos
-    app: kronos
+    name: petclinic-backend
+    app: petclinic-backend
 spec:
   replicas: 3
   selector:
       matchLabels:
-        name: kronos
+        name: petclinic-backend
   template:
     metadata:
       labels:
-        name: kronos
+        name: petclinic-backend
     spec:
       containers:
       - name: web 
         image: haroldo89/front-app:69
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 50m
+            memory: 50Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
