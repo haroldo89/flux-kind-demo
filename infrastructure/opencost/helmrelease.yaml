@@ -13,4 +13,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: opencost
+        namespace: opencost
       interval: 1m
