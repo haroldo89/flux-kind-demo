@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kronos
+  namespace: kronos
+  labels:
+    name: kronos
+    app: kronos
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+        name: kronos
+  template:
+    metadata:
+      labels:
+        name: kronos
+    spec:
+      containers:
+      - name: web 
+        image: haroldo89/front-app:69
+        ports:
+        - containerPort: 80

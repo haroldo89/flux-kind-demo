@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpha
+  namespace: alpha
+  labels:
+    name: alpha
+    app: alpha
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+        name: alpha
+  template:
+    metadata:
+      labels:
+        name: alpha
+    spec:
+      containers:
+      - name: web 
+        image: haroldo89/front-app:69
+        ports:
+        - containerPort: 80

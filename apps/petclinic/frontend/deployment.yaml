@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-frontend
+  namespace: petclinic
+  labels:
+    name: petclinic-frontend
+    app: petclinic-frontend
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        name: petclinic-frontend
+  template:
+    metadata:
+      labels:
+        name: petclinic-frontend
+    spec:
+      containers:
+      - name: web 
+        image: haroldo89/spring-petclinic-angular:1.0.0
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 50m
+            memory: 50Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi

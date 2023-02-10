@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: opencost
+  namespace: opencost
+spec:
+  interval: 5m
+  releaseName: opencost
+  chart:
+    spec:
+      chart: kubecost
+      # version: '4.0.x'
+      sourceRef:
+        kind: HelmRepository
+        name: opencost
+      interval: 1m

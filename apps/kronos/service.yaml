@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kronos
+  namespace: kronos
+  labels:
+    name: kronos
+    app: kronos
+spec:
+  selector:
+    name: kronos 
+  type: ClusterIP
+  ports:
+   - name: http
+     port: 80
+     targetPort: 80
+     protocol: TCP
